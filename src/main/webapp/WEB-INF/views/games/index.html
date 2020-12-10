@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <style>
+        table {
+            width: 50%; /* Ширина таблицы */
+            background: white; /* Цвет фона таблицы */
+            border-spacing: 0px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            background: white; /* Цвет фона ячеек */
+            padding: 0px; /* Поля вокруг текста */
+        }
+    </style>
+
+</head>
+<body>
+<table border="1">
+    <tr>
+        <!--        Add Names of Operations-->
+        <th width="200"></th>
+        <th width="200"><a href="/games/sort?col=stadium"> Stadium Id</a></th>
+        <th width="200"><a href="/games/sort?col=tn">Team Name</a></th>
+        <th width="200"><a href="/games/sort?col=date">Date</a></th>
+        <th width="200"><a href="/games/sort?col=time">Time</a></th>
+    </tr>
+
+    <div th:each="game : ${games}">
+        <!--            <th><a href="some delete page"/></th>-->
+        <!--            <th><a href="some update page"/></th>-->
+        <tr>
+            <th width="200"> <a th:href="@{/games/{id}/edit(id=${game.getId()})}">Edit</a> <a th:href="@{/games/{id}/delete(id=${game.getId()})}">Delete</a></th>
+            <th th:text="${game.getStadiumId()}" width="200">cell1</th>
+            <th th:text="${game.getTeamName()}" width="200">cell1</th>
+            <th th:text="${game.getDate()}" width="200">cell1</th>
+            <th th:text="${game.getTime()}" width="200">cell1</th>
+        </tr>
+        <!--    <p th:text="${game.getTeamName()}">user </p>-->
+
+    </div>
+</table>
+
+<br/>
+<hr/>
+
+<a href="/games/new">New game</a>
+
+</body>
+</html>

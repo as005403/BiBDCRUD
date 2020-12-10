@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/games/{id}/edit(id=${game.getId()})}" th:object="${game}">
+
+    <label for="stId">Enter Stadium name</label>
+    <input type="text" th:field="*{stadiumId}" id="stId"/>
+    <br/>
+    <label for="tn">Enter Team name</label>
+    <input type="text" th:field="*{teamName}" id="tn"/>
+    <br/>
+    <label for="date">Enter Date</label>
+    <input type="text" th:field="*{date}" id="date"/>
+    <br/>
+    <label for="time">Enter Time</label>
+    <input type="text" th:field="*{time}" id="time"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>
